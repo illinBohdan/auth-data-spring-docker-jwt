@@ -1,0 +1,6 @@
+server:
+  port: 8081 # Порт для Сервісу Б
+
+internal:
+  # Змінна середовища, яку буде використовувати Сервіс А для доступу
+  token: ${INTERNAL_TOKEN:very_secret_internal_token}

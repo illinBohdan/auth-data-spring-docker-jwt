@@ -1,6 +1,6 @@
 HELP.md
 target/
-**.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -18,8 +18,6 @@ target/
 *.iws
 *.iml
 *.ipr
-.idea/
-*.iml
 
 ### NetBeans ###
 /nbproject/private/
@@ -33,24 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-
-
-# Скомпільовані класи та ресурси
-/target/
-/bin/
-
-# Maven-файли (якщо використовуєте Maven Wrapper)
-!.mvn/wrapper/maven-wrapper.jar
-**/mvnw
-**/mvnw.cmd
-
-# Ігнорувати log-файли та тимчасові дані
-logs/
-*.log
-temp/
-tmp/
-
-
-auth-api/ServiceA/target/
-data-api/ServiceA/target/
