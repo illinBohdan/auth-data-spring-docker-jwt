@@ -20,7 +20,9 @@ spring:
 jwt:
   secret: ${JWT_SECRET:dGhpcy1pcy1hLWxvbmctYW5kLXNlY3VyZS1zZWNyZXQta2V5LWZvci10aGUtand0LWdcnvY2V1cmU=}
 
-    # 2. URL для Service B (auth-api має викликати data-api)
-  # Сервіс B знаходиться за внутрішньою Docker-адресою: http://data-api:8081
-  #service:
-  # data-api-url: ${DATA_API_URL:http://data-api:8081}
+service:
+  # 2. URL для Service B (внутрішня Docker-адреса)
+  data-api-url: ${DATA_API_URL:http://data-api:8081}
+
+  # 3. Спільний секретний ключ для виклику Service B
+  internal-token: ${INTERNAL_TOKEN:very_secret_internal_token}
