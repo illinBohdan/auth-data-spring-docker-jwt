@@ -20,6 +20,7 @@ spring:
 jwt:
   secret: ${JWT_SECRET:dGhpcy1pcy1hLWxvbmctYW5kLXNlY3VyZS1zZWNyZXQta2V5LWZvci10aGUtand0LWdcnvY2V1cmU=}
 
+
 service:
   # 2. URL для Service B (внутрішня Docker-адреса)
   data-api-url: ${DATA_API_URL:http://data-api:8081}
