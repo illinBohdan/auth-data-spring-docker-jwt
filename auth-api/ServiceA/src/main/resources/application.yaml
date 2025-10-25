@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/mydb}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+    # 1. Секретний ключ для JWT (вимога ТЗ)
+jwt:
+  secret: ${JWT_SECRET:dGhpcy1pcy1hLWxvbmctYW5kLXNlY3VyZS1zZWNyZXQta2V5LWZvci10aGUtand0LWdcnvY2V1cmU=}
+
+    # 2. URL для Service B (auth-api має викликати data-api)
+  # Сервіс B знаходиться за внутрішньою Docker-адресою: http://data-api:8081
+  #service:
+  # data-api-url: ${DATA_API_URL:http://data-api:8081}
