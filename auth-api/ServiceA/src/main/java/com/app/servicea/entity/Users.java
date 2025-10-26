@@ -1,7 +1,9 @@
 package com.app.servicea.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -13,6 +15,7 @@ import java.util.UUID;
 public class Users implements UserDetails {
     @Id
     @GeneratedValue
+    @UuidGenerator
     private UUID id;
     private String email;
     private String passwordHash;
@@ -44,19 +47,16 @@ public class Users implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // У цьому завданні ролі не потрібні, повертаємо порожню колекцію
-        return Collections.emptyList();
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
     public String getPassword() {
-        // Повертаємо хешований пароль
         return this.passwordHash;
     }
 
     @Override
     public String getUsername() {
-        // Використовуємо email як ім'я користувача
         return this.email;
     }
 
